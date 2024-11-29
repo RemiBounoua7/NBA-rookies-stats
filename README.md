@@ -6,6 +6,7 @@ Data viz + AI model to predict the chance of a player to make it >5Y in the NBA 
 
 ### NBA Rookies ages per year
 Graph, explanation about the graph, quick little story about 1976.
+https://public.tableau.com/views/NBATeamsdraftyoungerandyounger/Sheet2?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 ### NBA teams drafting loyal/good players
 Graph, explanation of the graph and the measures shown, quick little explanation on how to use the interactive functions
