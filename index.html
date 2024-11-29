@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NBA Rookies stats' impact on longevity</title>
+    <title>My Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,17 +13,46 @@
     <section id="intro">
         <h2>Introduction</h2>
         <p>Hello,
-This is a personnal project I made to answer a question that kept me awake at night : can we predict NBA players' success by looking at their Rookie year stats ?
-This repository contains all the data, scripts and visualizations I made in order to come to a final result, aalong with this file that will detail my thought process, the choices I made and present the conclusions I arrived at.
-</p>
+            This is a personnal project I made to answer a question that kept me awake at night : can we predict NBA players' success by looking at their Rookie year stats ?
+            This repository contains all the data, scripts and visualizations I made in order to come to a final result, aalong with this file that will detail my thought process, the choices I made and present the conclusions I arrived at.
+        </p>
+        <p>
+        First of all, I wanted to define a characteristic, a feature, a label to put on to NBA players, to asses whether or not their careers were successful.
+        This is not an easy question, as pro players careers are unique and success can't be measured so easily.
+        I didn't want to spend too much time finding the perfect measure, since it probably doesn't exist, so I went with the easy one : career length. 
+        The average NBA player career lasts 4.5 years. So our label, for successful player, will be 5Y, aka True if the player played >5 years in the league, and False if not.
+
+        Now we can go into details about what has an impact on this label we put to all players, limiting ourselves to the Rookie statline and characteristics of the player in that exact time frame.
+        </p>
     </section>
     <section id="Viz1">
-        <h2>Results</h2>
-        <p>Là je met le 1e graph tableau, moyenne d'age des rookies par années + explications, retroengineering</p>
-        <div class='tableauPlaceholder' id='viz1732623974056' style='position: relative'><noscript><a href='#'><img alt='NBA teams draft younger and younger ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NB&#47;NBATeamsdraftyoungerandyounger&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='NBATeamsdraftyoungerandyounger&#47;Sheet2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NB&#47;NBATeamsdraftyoungerandyounger&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='fr-FR' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1732623974056');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        <p>For example : the spike we see in 1976 comes from the fusion between NBA and ABA : the ABA players that came in were considered rookies, but they had already </p>
+        <h2>NBA Rookies age per year</h2>
+        <p>
+            Since we focus on rookie years, I felt I had to take age into account. 
+            Indeed, I know from my little understanding of the NBA world, that age is a big factor when it comes to selecting and then making a rookie play. 
+            It also acts as a hidden variable in our chosen label. Of course a younger player has more time in front of him to play 5 years more and a better chance of earning the label than an older rookie.
+            At the same time, rookies are selected based on their potential but also on their immediate qualities and output. So if player A is drafted younger than player B, it most likely means that teams value A's actual skillset higher than B's, else they would've chosen B earlier.
 
+            Recruitement and scouting processes have become second to none in such industries where talent is worth billions. So we can, for the most part, trust franchises to make better choices now than 50 years ago.
+            The internationnalisation of the NBA also brought forward new regions of the world to chose from, and ultimately increased the talent pool to pick from.
+            
+            //This also poses questions regarding the propoensity of the industry to focus too much on potential and age sometimes disregarding what players can do right now.
+             
+            Below is a graph showing the average rookie age each year from 1946 to 2019.
+            The beige line *contains* the players that didn't make it >5Y, and the green line the 5Y players.
+        </p>
+        <div class='tableauPlaceholder' id='viz1732623974056' style='position: relative'><noscript><a href='#'><img alt='NBA teams draft younger and younger ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NB&#47;NBATeamsdraftyoungerandyounger&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='NBATeamsdraftyoungerandyounger&#47;Sheet2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NB&#47;NBATeamsdraftyoungerandyounger&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='fr-FR' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1732623974056');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <p>
+            What jumps out first and foremost is that the green line is almost always below the beige one, especially in recent times.
+            This fuels our previous theory, that scouting and recruitement processes are better than ever, and talent is detected young.
+
+            Second important takeway : both lines steadily decline !
+            Again, this means that players are drafted younger and younger. More than 1 full year younger on average for both groups of players in 15 years, this is massive !
+
+        </p>
+        <p>Funny little caveat : notice the little spike in 1976 ? This is the cause of the merge between the NBA and the ABA. Because ABA players hadn't played in the NBA, their first year was considered their rookie year ! This new influx of (older) players from the merger is mixed with the draftees, making for a spike in the average rookie age that year</p>
     </section>
+    
     <section id="Viz2">
         <h2>Results2</h2>
         <p>Là je met le 2e graph tableau, drafté + teams, en essayant de le garder intéractif + explications, retroengineering</p>
@@ -74,3 +103,5 @@ This repository contains all the data, scripts and visualizations I made in orde
     <script src="script.js"></script>
 </body>
 </html>
+
+
