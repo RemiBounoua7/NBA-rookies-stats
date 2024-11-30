@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>NBA rookie success predictor</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
         Now we can go into details about what has an impact on this label we put to all players, limiting ourselves to the Rookie statline and characteristics of the player in that exact time frame.
         </p>
     </section>
-    <section id="Viz1">
+    <section id="Viz_Rookie_age_avg">
         <h2>NBA Rookies age per year</h2>
         <p>
             Since we focus on rookie years, I felt I had to take age into account. 
@@ -51,55 +51,57 @@
 
         </p>
         <p>Funny little caveat : notice the little spike in 1976 ? This is the cause of the merge between the NBA and the ABA. Because ABA players hadn't played in the NBA, their first year was considered their rookie year ! This new influx of (older) players from the merger is mixed with the draftees, making for a spike in the average rookie age that year</p>
+        <p>
+
+            Aside from the rookie's age, there is another variable that is important to take into consideration when analysing it's arrival in the NBA : the drafting franchise.
+            
+        </p>
     </section>
     
-    <section id="Viz2">
-        <h2>Results2</h2>
-        <p>Là je met le 2e graph tableau, drafté + teams, en essayant de le garder intéractif + explications, retroengineering</p>
+    <section id="Viz_Drafting_Teams">
+        <h2>Drafting teams and their impact on players' longevity</h2>
+        <p>
+            If you were to be selected in the 2025 NBA draft, which team would you hope drafts you, and why ?
+            Maybe you have a favorite team, and the thought of wearing their jersey fills you with joy ?
+            Or maybe you'd want to be selected by the best team, hoping to be a part of a championship run ?
+
+            That's all fun to discuss for you and I, because we will never be in such position, but the debat is very much happenning right now in every NBA prospect's mind, because their career and ultimately their life is on the line.
+            What is the correct answer ? Is there an answer at all ? Is there a way to find the best team to get drafted into ?
+
+            I'll try and provide one :
+            
+        </p>
         <div class='tableauPlaceholder' id='viz1732623779216' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;Draftingdata_17326237396590&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Draftingdata_17326237396590&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;Draftingdata_17326237396590&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='fr-FR' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1732623779216');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1024px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1024px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='827px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <p>
+            What do we see here ? 
+            We see all 30 teams ranked on 2 axes. The farther to the right a team is, the best it is at identifying talent (% of rookies that made it 5Y).
+            And the higher it is, the more loyal the players it selects (% of years said rookies played in this franchise).
+            
+            So the best drafting team is Philadelphia, and the team that drafted the most loyal players is Boston. The interesting we infer from the global trend is that the farther to the right a team is, the lower it goes in the Y-Axis !
+            Meaning that the better the players a team drafts, the less likely it is for the team to keep them around a long time.
+            
+            Finally, going back to our main question, we can continue stress free. Indeed, the difference in percentages of success rate between the best and worst drafting teams is too small to make an impact.
+            That, plus the relative small sample sizes and the multiple unchecked variables (mainly the position in the draft leading to such draft picks) makes it impossible for us to conclude anything. Which is a good thing as it allows us to concentrate our efforts on the rookies' statline.
+        </p>
     </section>
-    
+
+
+    <section id="Model">
+        <p>
+            Soooo, here is the main course. 
+            Now that we dismissed every other variables, we can focus on the nitty gritty : rookies stats.
+
+            What we'll try to do is train a model on all rookies numbers from 1946 to 2019, so it can deduce what successful players did or didn't do in their rookie year, and generalize it to our 2020+ draft classes, to predict whether or not they will make it >5Y.
+            Here we go.
+        </p>
     <center><img src="Correlation Matrix.png"></center>
     <p>Explications des features, 2-3 exemples sur les impacts des stats sur la longévité</p>
 
-    <section id="Model">
+    
         <h2>Model</h2>
         <p>Là je met les explications du modèle que j'utilise, et j'explique les tenants et aboutissants (hyperparamètres, sample sizes etc)</p>
         <p>Image des % accuracy recall etc (+ explications)</p>
-    </section>
-    <p>10 input box pour mettre les stats des nouveaux rookies (avec un exemple juste avant pour expliquer comment utiliser le truc)</p>
-    <center>
-        <h2>Prediction on new Rookie data</h2>
-        <form id="Predictor">
-            <div class="input-row">
-                <input type="float" id="GP" placeholder="GP">
-                <input type="float" id="Age" placeholder="Age">
-                <input type="float" id="Team" placeholder="Team">
-                <input type="float" id="MIN" placeholder="MIN">
-                <input type="float" id="PTS" placeholder="PTS">
-                <input type="float" id="AST" placeholder="AST">
-                <input type="float" id="FGA" placeholder="FGA">
-                <input type="float" id="FGM" placeholder="FGM">
-                <input type="float" id="FG%" placeholder="FG%">
-                <input type="float" id="3PA" placeholder="3PA">
-                <input type="float" id="3PM" placeholder="3PM">
-                <input type="float" id="3P%" placeholder="3P%">
-                <input type="float" id="FTA" placeholder="FTA">
-                <input type="float" id="FTM" placeholder="FTM">
-                <input type="float" id="FT%" placeholder="FT%">
-                <input type="float" id="OREB" placeholder="OREB">
-                <input type="float" id="DREB" placeholder="DREB">
-                <input type="float" id="REB" placeholder="REB">
-                <input type="float" id="STL" placeholder="STL">
-                <input type="float" id="BLK" placeholder="BLK">
-                <input type="float" id="TOV" placeholder="TOV">
-                <input type="float" id="PF" placeholder="PF">
-                <input type="float" id="YEAR" placeholder="YEAR">
-            </div>
-            <button type="submit" onclick="SubmitData()">Predict</button>
-            <p id="'result_prediction"></p>
-        </form>
-    </center>
+
     <script src="script.js"></script>
 </body>
 </html>
