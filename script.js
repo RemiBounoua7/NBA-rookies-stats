@@ -42,7 +42,7 @@ function filterList() {
 // Display the selected name's number
 function selectName(item) {
     document.getElementById('result').textContent = 
-        `You selected ${item.name}, PREDICTION : ${item.number}`;
+        `You selected ${item.name}, PREDICTION : ${item.prediction}`;
     document.getElementById('nameList').style.display = 'none';
 }
 
