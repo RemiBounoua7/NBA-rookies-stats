@@ -10,6 +10,7 @@ async function loadCSV() {
     rows.forEach((row, index) => {
         if (index > 0) { // Skip header row
             const [name, prediction, year] = row.split(',');
+            console.log(prediction)
             namesData.push({ name: name.trim(), prediction: prediction.trim(), year: year.trim() });
         }
     });
@@ -39,10 +40,17 @@ function filterList() {
     populateList(filteredData);
 }
 
-// Display the selected name's number
+// Display the selected name's prediction
 function selectName(item) {
-    document.getElementById('result').textContent = 
-        `Prediction for ${item.name} : ${item.prediction}`;
+    if (item.prediction === False){
+        document.getElementById('result').textContent = 
+        `Model predicts ${item.name} MAKES IT 5Y !`;
+    }
+    else{
+        document.getElementById('result').textContent = 
+        `Model predicts ${item.name} Doesn't make it 5Y ...`;
+    }
+
     document.getElementById('nameList').style.display = 'none';
 }
 
