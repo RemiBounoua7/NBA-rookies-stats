@@ -10,6 +10,7 @@ async function loadCSV() {
     rows.forEach((row, index) => {
         if (index > 0) { // Skip header row
             const [name, prediction, year] = row.split(',');
+            console.log(prediction)
             namesData.push({ name: name.trim(), prediction: prediction.trim(), year: year.trim() });
         }
     });
