@@ -147,3 +147,7 @@ footer a:hover {
     height: auto; /* Maintain the aspect ratio */
     border: none; /* Remove any default borders */
 }
+.text-image-container {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Align items vertically */
+}
