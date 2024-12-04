@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.left-align {
+    margin: 0;
+    padding: 0;
+    text-align: left; 
+}
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+section {
+    padding: 20px;
+}
+form input, form textarea, form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#nameList {
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    display: none;
+}
+.name-item {
+    padding: 5px;
+    cursor: pointer;
+}
+.name-item:hover {
+    background-color: #f0f0f0;
+}
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}

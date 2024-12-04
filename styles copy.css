@@ -1,0 +1,153 @@
+/* General Reset */
+body, h1, h2, h3, p, ul, li, a, input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Background */
+body {
+    font-family: 'Georgia', serif; /* Classic serif font for a blog style */
+    background-color: #f9f5f1; /* Pale beige background */
+    color: #4a4a4a; /* Soft dark gray for text */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Main Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff; /* White content area for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Header Styling */
+header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+header h1 {
+    font-size: 2.5rem;
+    color: #4a2e16; /* Dark brown for headers */
+}
+header p {
+    font-size: 1.2rem;
+    color: #6b5b4b; /* Medium brown for subtitle text */
+}
+
+/* Blog Content */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #4a2e16;
+    border-bottom: 2px solid #dbc2a6; /* Beige underline */
+    padding-bottom: 5px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Links */
+a {
+    color: #4a2e16;
+    text-decoration: none;
+    border-bottom: 1px solid #4a2e16;
+}
+a:hover {
+    color: #6b5b4b;
+    border-bottom: 1px solid #6b5b4b;
+}
+
+/* Search Box */
+#searchBox {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border: 1px solid #dbc2a6; /* Beige border */
+    border-radius: 4px;
+}
+
+#searchBox:focus {
+    border-color: #4a2e16; /* Highlighted focus border */
+    outline: none;
+}
+
+/* Name List */
+#nameList {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #dbc2a6;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.name-item {
+    padding: 10px;
+    font-size: 1rem;
+    border-bottom: 1px solid #f2e9e1;
+    cursor: pointer;
+}
+
+.name-item:last-child {
+    border-bottom: none;
+}
+
+.name-item:hover {
+    background-color: #f2e9e1; /* Light beige hover effect */
+}
+
+/* Result Section */
+#result {
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #6b5b4b;
+}
+footer a {
+    color: #4a2e16;
+    text-decoration: underline;
+}
+footer a:hover {
+    color: #6b5b4b;
+}
+.tableauPlaceholder {
+    margin: 0; /* Remove external margins */
+    padding: 0; /* Remove internal padding */
+    overflow: hidden; /* Prevent extra content overflow */
+    width: 100%; /* Ensure it scales responsively */
+}
+
+.tableauViz {
+    display: block; /* Remove any inline gaps */
+    margin: 0 auto; /* Center the visualization if needed */
+    width: 100%; /* Ensure the viz fits the container */
+    height: auto; /* Maintain the aspect ratio */
+    border: none; /* Remove any default borders */
+}
+.text-image-container {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Align items vertically */
+}
