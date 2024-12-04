@@ -42,15 +42,8 @@ function filterList() {
 
 // Display the selected name's prediction
 function selectName(item) {
-    if (item.prediction === False){
-        document.getElementById('result').textContent = 
-        `Model predicts ${item.name} MAKES IT 5Y !`;
-    }
-    else{
-        document.getElementById('result').textContent = 
-        `Model predicts ${item.name} Doesn't make it 5Y ...`;
-    }
-
+    document.getElementById('result').textContent = 
+        `The model prediction for ${item.name} : ${item.prediction}`;
     document.getElementById('nameList').style.display = 'none';
 }
 
